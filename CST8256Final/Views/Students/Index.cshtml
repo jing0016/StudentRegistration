@@ -1,0 +1,22 @@
+﻿@model Final.Models.StudentNumberViewModel
+
+@{
+    ViewData["Title"] = "Student Number";
+    Layout = "~/Views/Shared/_ACLayout.cshtml";
+}
+<h2>To start, enter your student ID</h2>
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div class="form-group">
+                <label asp-for="StudentNum" class="control-label"></label>
+                <input asp-for="StudentNum" class="form-control" />
+                <span asp-validation-for="StudentNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

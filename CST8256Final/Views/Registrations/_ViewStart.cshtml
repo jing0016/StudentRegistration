@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Course Registration";
+
+    List<TopMenuItem> topMenu = new List<TopMenuItem>();
+    topMenu.Add(new TopMenuItem { AspAction = "Index", AspController = "Registrations", DisplayText = "Current Registrations" });
+    topMenu.Add(new TopMenuItem { AspAction = "AddRegistration", AspController = "Registrations", DisplayText ="Add Registrations" });
+    ViewBag.TopMenu = topMenu;
+
+    Layout = "~/Views/Shared/_ACLayout.cshtml";
+}

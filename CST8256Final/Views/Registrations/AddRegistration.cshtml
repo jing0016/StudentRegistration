@@ -1,0 +1,21 @@
+﻿@model Final.Models.SelectCourseIDsViewModel;
+@using Final.Models.DataAccess
+
+<h2>Add Registration</h2>
+
+<p>
+    Select one or more courses from the list and press the Submit button
+</p>
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="AddRegistration">
+            <div class="form-group">
+                <select asp-for="CourseIds" class="form-control" asp-items="ViewBag.Courses" size="10" style="width: 100%"></select>
+                <span asp-validation-for="CourseIds" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

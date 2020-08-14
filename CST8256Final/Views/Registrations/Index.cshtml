@@ -1,0 +1,46 @@
+﻿@model List<Final.Models.DataAccess.Course>
+@using Final.Models.DataAccess;
+
+@{
+    Student student = ViewBag.Student as Student;
+}
+
+<h2>@(student.StudentNum + " - " + student.Name)'s current registration</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Course</th>
+            <th>Weekly Hours</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int totalHours = 0;}
+        @foreach (var item in Model)
+        {
+            totalHours += item.HoursPerWeek.Value;
+            <tr>
+                <td>
+                    <span>@item.CourseId - @item.CourseTitle</span>
+                </td>
+                <td>
+                    <span>@item.HoursPerWeek</span>
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.CourseId" onclick="return confirm(' @item.CourseId - @item.CourseTitle \n will be remove from the registrations');">Delete</a>
+                </td>
+            </tr>
+        }
+        <tr>
+            <th>
+                <span>Total</span>
+            </th>
+            <th>
+                <span>@totalHours</span>
+            </th>
+            <td>
+                &nbsp;  
+            </td>
+        </tr>
+    </tbody>
+</table>
